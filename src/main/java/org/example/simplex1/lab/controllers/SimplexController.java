@@ -1,4 +1,4 @@
-package org.example.simplex1.lab.controllers.controllers;
+package org.example.simplex1.lab.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,10 +15,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.util.Pair;
-import org.example.simplex1.lab.controllers.helpers.Fraction;
-import org.example.simplex1.lab.controllers.helpers.Helper;
-import org.example.simplex1.lab.controllers.models.Conditions;
-import org.example.simplex1.lab.controllers.models.SimplexTable;
+import org.example.simplex1.lab.helpers.Fraction;
+import org.example.simplex1.lab.helpers.Helper;
+import org.example.simplex1.lab.models.Conditions;
+import org.example.simplex1.lab.models.SimplexTable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,21 +57,6 @@ public class SimplexController {
     @FXML
     private void initialize() {
         table = new SimplexTable();
-        Tooltip t = new Tooltip("Получить следующую итерацию симплекс таблицы");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(nextBtn, t);
-
-        t = new Tooltip("Мгновенно получить ответ, без промежуточных симплекс таблиц");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(quickAnswerBtn, t);
-
-        t = new Tooltip("Стереть промежуточные симплекс таблицы");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(resetBtn, t);
-
-        t = new Tooltip("Можно вводить целые числа от 1 до (кол-ва огранчений)");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(basisListView, t);
 
         setBasisListView();
         setBasisList();
@@ -95,11 +80,7 @@ public class SimplexController {
                 table = table.generate(getSelectedPivot());
                 table.iterate();
             } else {
-                Helper.message(Alert.AlertType.ERROR,
-                        "Ошибка опорного элемента",
-                        "",
-                        "Вы не выделили опорный элемент, обязательно выберите его (в зелёной рамке или в жёлтой)," +
-                                " чтобы продолжить решение");
+
             }
         }
         if (table.isSolved()) {
@@ -362,7 +343,7 @@ public class SimplexController {
         Fraction[] answer = table.getAnswer();
         StringBuilder line = new StringBuilder();
         if (answer == null) {
-            line.append("НЕТ РЕШЕНИЯ");
+            line.append("НЕМАЄ РОЗВ'ЯЗКУ");
             answerTextArea.setStyle("-fx-border-color: #ff0000; -fx-font-size: 16;");
         } else {
             line = new StringBuilder("X(");

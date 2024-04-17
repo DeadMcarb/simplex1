@@ -1,4 +1,4 @@
-package org.example.simplex1.lab.controllers.controllers;
+package org.example.simplex1.lab.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -11,14 +11,11 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
-import javafx.util.Duration;
 import javafx.util.converter.IntegerStringConverter;
-import org.example.simplex1.lab.controllers.helpers.Fraction;
-
-import org.example.simplex1.lab.controllers.helpers.Helper;
-import org.example.simplex1.lab.controllers.helpers.Observer;
-import org.example.simplex1.lab.controllers.models.Conditions;
-import org.example.simplex1.lab.controllers.views.EditingCell;
+import org.example.simplex1.lab.helpers.Fraction;
+import org.example.simplex1.lab.helpers.Observer;
+import org.example.simplex1.lab.models.Conditions;
+import org.example.simplex1.lab.views.EditingCell;
 
 import java.text.NumberFormat;
 import java.text.ParsePosition;
@@ -60,46 +57,12 @@ public class ConditionsController {
         inputOnlyInteger(restrictCount, MAX_FIELD_VALUE);
         rebuildConditionTables(INITIAL_FIELD_VALUE, INITIAL_FIELD_VALUE);
 
-        Tooltip t = new Tooltip("Целевая функция вида: a1*X1 + a2*X2 + ... + Const\n" +
-                "Можно вводить: целые, дробные числа. \n" +
-                "Пример: 1, 1/2, 0.65");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(targetTable, t);
 
-        t = new Tooltip("Уравнения ограничений имеют вид: a1*X1 + a2*X2 + ... = b\n" +
-                "Можно вводить: целые, дробные числа. \n" +
-                "Пример: 1, 1/2, 0.65");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(restrictTable, t);
-
-        t = new Tooltip("Можно вводить от 1 до 16 и число переменных >= число ограничений");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(restrictCount, t);
-        Tooltip.install(varCount, t);
-
-        t = new Tooltip("Вывод будет отображаться таким типом дробей. \nПример десятичной дроби 0.1 или 0,15.\n" +
-                "Пример обыкновенной дроби -1/5");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(fractionCombo, t);
-
-        t = new Tooltip("Целевая функция -> min, Целевая функция -> max");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(targetCombo, t);
-
-        t = new Tooltip("Применить введённые значения условий");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(applyBtn, t);
-
-
-
+        // Динамическая связка кол-ва ограничений и таблицы для ввода значений
         varCount.valueProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue < restrictCount.getValue()) {
                 restrictCount.getValueFactory().setValue(newValue);
-//                Helper.message(Alert.AlertType.INFORMATION,
-//                        "Ошибка ввода числа переменных",
-//                        "",
-//                        "Переменных не должно быть меньше, чем ограничений");
-                System.out.println("var count error");
+                System.out.println("Змінних не повинно бути менше, ніж обмежень! Кількість обмежень автоматично зменшено ");
 
             } else {
                 if (newValue <= MAX_FIELD_VALUE && newValue >= MIN_FIELD_VALUE) {
@@ -112,11 +75,7 @@ public class ConditionsController {
         restrictCount.valueProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue > varCount.getValue()) {
                 varCount.getValueFactory().setValue(newValue);
-//                Helper.message(Alert.AlertType.INFORMATION,
-//                        "Ошибка ввода числа переменных",
-//                        "",
-//                        "Переменных не должно быть меньше, чем ограничений");
-                System.out.println("restrict count error");
+                System.out.println("Обмежень не повинно бути більше, ніж змінних! Кількість змінних автоматично збільшено");
             } else {
                 if (newValue >= MIN_FIELD_VALUE && newValue <= MAX_FIELD_VALUE) {
                     rebuildConditionTables(varCount.getValue(), newValue);
@@ -151,10 +110,10 @@ public class ConditionsController {
         int rCount = restrictCount.getValue();
         Conditions.setRestrictCount(rCount);
 
-        boolean isRational = fractionCombo.getValue().equals("Обыкновенный");
+        boolean isRational = fractionCombo.getValue().equals("Звичайні");
         Conditions.setRational(isRational);
 
-        boolean isMin = targetCombo.getValue().equals("Минимум");
+        boolean isMin = targetCombo.getValue().equals("Мінімум");
         Conditions.setMin(isMin);
 
         notifyObservers("conditionsApply");
@@ -368,8 +327,8 @@ public class ConditionsController {
         this.targetItems.setAll(targetItems);
         targetTable.setItems(targetItems);
 
-        targetCombo.setValue(Conditions.isMin() ? "Минимум" : "Максимум");
-        fractionCombo.setValue(Conditions.isRational() ? "Обыкновенный" : "Десятичный");
+        targetCombo.setValue(Conditions.isMin() ? "Мінімум" : "Максимум");
+        fractionCombo.setValue(Conditions.isRational() ? "Звичайні" : "Десяткові");
 
         Fraction[][] restrict = Conditions.getRestrict();
         restrictItems.clear();
@@ -410,11 +369,11 @@ public class ConditionsController {
                 try {
                     fraction = stringToFraction(value);
                 } catch (IllegalArgumentException e) {
-                    Helper.message(Alert.AlertType.ERROR,
-                            "Несоответствие формата ввода",
-                            "",
-                            "Могут быть лишь введены числа, десятичные и обыкновенные дроби (пример 1.5 или 3/2)"
-                    );
+//                    Helper.message(Alert.AlertType.ERROR,
+//                            "Несоответствие формата ввода",
+//                            "",
+//                            "Могут быть лишь введены числа, десятичные и обыкновенные дроби (пример 1.5 или 3/2)"
+//                    );
                     Map<String, Object> remove = items.remove(i);
                     remove.put(nameCol + j, "0");
                     items.add(remove);

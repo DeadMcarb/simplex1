@@ -1,6 +1,6 @@
-package org.example.simplex1.lab.controllers.models;
+package org.example.simplex1.lab.models;
 
-import org.example.simplex1.lab.controllers.helpers.Fraction;
+import org.example.simplex1.lab.helpers.Fraction;
 
 import java.util.Arrays;
 import java.util.List;
@@ -96,13 +96,13 @@ public class Conditions{
             }
             restrictLine.append("\n");
         }
-        return "Conditions{\n" +
-                "\ttarget= " + Arrays.toString(target) +
-                ", \n\trestrict=[\n" + restrictLine +
-                "\t], \n\tbaseList= " + baseList +
-                ", \n\trational= " + rational +
-                ", \n\tmin= " + min +
-                "\n}";
+        return "Умови:\n" +
+                "\tЦільова функція = " + Arrays.toString(target) +
+                " \n\tОбмеження = [\n" + restrictLine +
+                "\t] \n\tБазис = " + baseList +
+                " \n\tПрапор відображення дробів = " + rational +
+                " \n\tПрапор min = " + min +
+                "\n";
 
     }
 }

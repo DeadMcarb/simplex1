@@ -1,4 +1,4 @@
-package org.example.simplex1.lab.controllers.controllers;
+package org.example.simplex1.lab.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,11 +12,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.util.Pair;
-import org.example.simplex1.lab.controllers.helpers.ExtraHistoryRecord;
-import org.example.simplex1.lab.controllers.helpers.Fraction;
-import org.example.simplex1.lab.controllers.helpers.Helper;
-import org.example.simplex1.lab.controllers.models.Conditions;
-import org.example.simplex1.lab.controllers.models.ExtraSimplexTable;
+import org.example.simplex1.lab.helpers.ExtraHistoryRecord;
+import org.example.simplex1.lab.helpers.Fraction;
+import org.example.simplex1.lab.helpers.Helper;
+import org.example.simplex1.lab.models.Conditions;
+import org.example.simplex1.lab.models.ExtraSimplexTable;
 
 import java.util.*;
 
@@ -62,29 +62,7 @@ public class ExtraSimplexController {
     @FXML // Запускается после конструктора, но до основой загрузки
     private void initialize() {
         simplexTable.getSelectionModel().setCellSelectionEnabled(true);
-        Tooltip t = new Tooltip("Получить следующую итерацию вспомогательной таблицы");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(nextExtraBtn, t);
 
-        t = new Tooltip("Получить следующую итерацию симплекс таблицы");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(nextSimplexBtn, t);
-
-        t = new Tooltip("Мгновенно получить ответ вспомогательной задачи без промежуточных таблиц");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(quickExtraAnswerBtn, t);
-
-        t = new Tooltip("Мгновенно получить ответ задачи без промежуточных таблиц");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(quickSimplexAnswerBtn, t);
-
-        t = new Tooltip("Стереть промежуточные таблицы");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(resetBtn, t);
-
-        t = new Tooltip("Получить предыдущую таблицу");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(rollBackBtn, t);
     }
 
     @FXML
@@ -171,11 +149,7 @@ public class ExtraSimplexController {
                 table = table.generate(selectedPivot);
                 table.iterate();
             } else {
-                Helper.message(Alert.AlertType.ERROR,
-                        "Ошибка опорного элемента",
-                        "",
-                        "Вы не выделили опорный элемент, обязательно выберите его (в зелёной рамке или в жёлтой)," +
-                                " чтобы продолжить решение");
+
             }
         }
         if (table.isExtraSolved()) {
@@ -222,11 +196,7 @@ public class ExtraSimplexController {
                 table = table.generate(selectedPivot);
                 table.iterate();
             } else {
-                Helper.message(Alert.AlertType.ERROR,
-                        "Ошибка опорного элемента",
-                        "",
-                        "Вы не выделили опорный элемент, обязательно выберите его (в зелёной рамке или в жёлтой)," +
-                                " чтобы продолжить решение");
+
             }
         }
         if (table.isSolved()) {

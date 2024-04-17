@@ -1,6 +1,6 @@
-package org.example.simplex1.lab.controllers.helpers;
+package org.example.simplex1.lab.helpers;
 
-import org.example.simplex1.lab.controllers.models.Conditions;
+import org.example.simplex1.lab.models.Conditions;
 import org.apache.commons.math3.FieldElement;
 import org.apache.commons.math3.exception.MathArithmeticException;
 import org.apache.commons.math3.exception.NullArgumentException;

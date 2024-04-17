@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane dividerPositions="0.27" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" stylesheets="@graph.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controllers.GraphController">
+<SplitPane dividerPositions="0.27" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" stylesheets="@graph.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.simplex1.lab.controllers.GraphController">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="571.0">
             <children>
@@ -27,7 +27,7 @@
                           <children>
                               <Pane fx:id="basisPane" prefHeight="222.0" prefWidth="588.0">
                                   <children>
-                                      <Label text="Номера базисных векторов" />
+                                      <Label text="Номери базисних векторів" />
                                       <ListView fx:id="basisListView" editable="true" fixedCellSize="25.0" layoutY="17.0" orientation="HORIZONTAL" prefHeight="34.0" prefWidth="197.0" />
                                   </children>
                               </Pane>
@@ -75,8 +75,8 @@
                          </AnchorPane>
                   <VBox alignment="TOP_RIGHT" prefHeight="286.0" prefWidth="171.0" spacing="20.0" GridPane.columnIndex="3" GridPane.rowSpan="3">
                      <children>
-                        <Button fx:id="quickAnswerBtn" mnemonicParsing="false" onAction="#quickAnswer" text="Ответ" />
-                        <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetGraph" text="Сбросить" textFill="RED">
+                        <Button fx:id="quickAnswerBtn" mnemonicParsing="false" onAction="#quickAnswer" text="РОЗВ'ЯЗАТИ" />
+                        <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetGraph" text="Перезапустити" textFill="RED">
                            <VBox.margin>
                               <Insets top="150.0" />
                            </VBox.margin></Button>

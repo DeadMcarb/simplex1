@@ -1,4 +1,4 @@
-package org.example.simplex1.lab.controllers.helpers;
+package org.example.simplex1.lab.helpers;
 
 import java.util.List;
 

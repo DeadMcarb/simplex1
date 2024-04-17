@@ -1,4 +1,4 @@
-package org.example.simplex1.lab.controllers.views;
+package org.example.simplex1.lab.views;
 
 import javafx.scene.chart.XYChart;
 import javafx.util.Pair;

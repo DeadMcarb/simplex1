@@ -1,4 +1,4 @@
-package org.example.simplex1.lab.controllers.helpers;
+package org.example.simplex1.lab.helpers;
 
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
@@ -223,7 +223,7 @@ public class Helper {
             double doubleVal = Double.parseDouble(value);
             return new Fraction(doubleVal);
         }
-        throw new IllegalArgumentException("Строка не соответстует Fraction");
+        throw new IllegalArgumentException("Рядок не відповідає Fraction");
     }
 
 
@@ -248,9 +248,7 @@ public class Helper {
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(
-                new Image(Objects.requireNonNull(Helper.class.getResourceAsStream("/lab/main-icon.png")))
-        );
+
         alert.showAndWait();
     }
 }

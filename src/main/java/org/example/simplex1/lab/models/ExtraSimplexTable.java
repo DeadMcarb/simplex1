@@ -1,7 +1,7 @@
-package org.example.simplex1.lab.controllers.models;
+package org.example.simplex1.lab.models;
 
 import javafx.util.Pair;
-import org.example.simplex1.lab.controllers.helpers.Fraction;
+import org.example.simplex1.lab.helpers.Fraction;
 
 import java.util.ArrayList;
 import java.util.Arrays;

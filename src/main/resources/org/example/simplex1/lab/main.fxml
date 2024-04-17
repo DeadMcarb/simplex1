@@ -9,38 +9,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controllers.MainController">
+<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.simplex1.lab.controllers.MainController">
     <children>
         <VBox>
             <children>
-                <MenuBar fx:id="menuBar">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Файл">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#importConditions" text="Открыть условие задачи" />
-                                <MenuItem mnemonicParsing="false" onAction="#exportConditions" text="Сохранить условие задачи" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false">
-                            <graphic>
-                                <Label fx:id="menuAbout" onMouseClicked="#clickAboutEvent" text="О программе" />
-                            </graphic>
-                        </Menu>
-                    </menus>
-                </MenuBar>
+
                 <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                        <Tab fx:id="conditionsTab" text="Условия задачи">
-                            <fx:include fx:id="conditionsTabPage" source="org/example/simplex1/lab/conditions.fxml" />
+                        <Tab fx:id="conditionsTab" text="Дано">
+                            <fx:include fx:id="conditionsTabPage" source="conditions.fxml" />
                         </Tab>
                         <Tab fx:id="simplexTab" text="Симплекс метод">
-                            <fx:include fx:id="simplexTabPage" source="org/example/simplex1/lab/simplex.fxml" />
+                            <fx:include fx:id="simplexTabPage" source="simplex.fxml" />
                         </Tab>
-                        <Tab fx:id="extraSimplexTab" text="Искусственный базис">
-                            <fx:include fx:id="extraSimplexTabPage" source="org/example/simplex1/lab/extra-simplex.fxml" />
-                        </Tab>
-                        <Tab fx:id="graphTab" text="Графический метод">
-                            <fx:include fx:id="graphTabPage" source="org/example/simplex1/lab/graph.fxml" />
+
+                        <Tab fx:id="graphTab" text="Графічний метод">
+                            <fx:include fx:id="graphTabPage" source="graph.fxml" />
                         </Tab>
                     </tabs>
                 </TabPane>

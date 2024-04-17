@@ -1,7 +1,7 @@
-package org.example.simplex1.lab.controllers.models;
+package org.example.simplex1.lab.models;
 
 import javafx.util.Pair;
-import org.example.simplex1.lab.controllers.helpers.*;
+import org.example.simplex1.lab.helpers.*;
 
 import java.util.*;
 import java.util.stream.Collectors;

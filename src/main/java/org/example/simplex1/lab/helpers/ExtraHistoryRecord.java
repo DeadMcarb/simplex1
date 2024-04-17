@@ -1,8 +1,8 @@
-package org.example.simplex1.lab.controllers.helpers;
+package org.example.simplex1.lab.helpers;
 
 import javafx.collections.ObservableList;
 import javafx.util.Pair;
-import org.example.simplex1.lab.controllers.models.ExtraSimplexTable;
+import org.example.simplex1.lab.models.ExtraSimplexTable;
 
 import java.util.List;
 import java.util.Map;

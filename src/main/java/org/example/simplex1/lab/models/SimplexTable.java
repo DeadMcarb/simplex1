@@ -1,9 +1,9 @@
-package org.example.simplex1.lab.controllers.models;
+package org.example.simplex1.lab.models;
 
 import javafx.util.Pair;
-import org.example.simplex1.lab.controllers.helpers.Fraction;
-import org.example.simplex1.lab.controllers.helpers.GaussObject;
-import org.example.simplex1.lab.controllers.helpers.Helper;
+import org.example.simplex1.lab.helpers.Fraction;
+import org.example.simplex1.lab.helpers.GaussObject;
+import org.example.simplex1.lab.helpers.Helper;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;

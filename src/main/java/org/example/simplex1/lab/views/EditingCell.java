@@ -1,4 +1,4 @@
-package org.example.simplex1.lab.controllers.views;
+package org.example.simplex1.lab.views;
 
 import javafx.application.Platform;
 import javafx.scene.control.ContentDisplay;
@@ -6,7 +6,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import org.example.simplex1.lab.controllers.helpers.Helper;
+import org.example.simplex1.lab.helpers.Helper;
 
 import java.util.ArrayList;
 import java.util.List;

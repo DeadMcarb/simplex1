@@ -17,7 +17,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane dividerPositions="0.26666666666666666" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controllers.ConditionsController">
+<SplitPane dividerPositions="0.26666666666666666" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.simplex1.lab.controllers.ConditionsController">
    <items>
       <GridPane>
         <columnConstraints>
@@ -45,28 +46,28 @@
                     <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory max="16" min="1" />
                 </valueFactory>
             </Spinner>
-            <Label prefHeight="17.0" prefWidth="194.0" text="Число переменных" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+            <Label prefHeight="17.0" prefWidth="194.0" text="Кількість змінних" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
             <Spinner fx:id="restrictCount" editable="true" prefHeight="25.0" prefWidth="130.0" GridPane.rowIndex="3">
                 <valueFactory>
                     <javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory max="16" min="1" />
                 </valueFactory>
             </Spinner>
-            <Label prefHeight="17.0" prefWidth="194.0" text="Число ограничений" GridPane.rowIndex="2" />
-            <Label prefHeight="17.0" prefWidth="194.0" text="Задача оптимизации на " GridPane.rowIndex="4" />
-            <ComboBox fx:id="targetCombo" prefHeight="25.0" prefWidth="130.0" value="Минимум" GridPane.rowIndex="5">
+            <Label prefHeight="17.0" prefWidth="194.0" text="Кількість обмежень" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="194.0" text="Задача оптимізації:" GridPane.rowIndex="4" />
+            <ComboBox fx:id="targetCombo" prefHeight="25.0" prefWidth="130.0" value="Мінімум" GridPane.rowIndex="5">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Минимум" />
+                        <String fx:value="Мінімум" />
                         <String fx:value="Максимум" />
                     </FXCollections>
                 </items>
             </ComboBox>
-            <Label prefHeight="17.0" prefWidth="194.0" text="Вид дробей" GridPane.rowIndex="6" />
-            <ComboBox fx:id="fractionCombo" prefWidth="130.0" value="Обыкновенный" GridPane.rowIndex="7">
+            <Label prefHeight="17.0" prefWidth="194.0" text="Відображення дробів" GridPane.rowIndex="6" />
+            <ComboBox fx:id="fractionCombo" prefWidth="130.0" value="Звичайні" GridPane.rowIndex="7">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Обыкновенный" />
-                        <String fx:value="Десятичный" />
+                        <String fx:value="Звичайні" />
+                        <String fx:value="Десяткові" />
                     </FXCollections>
                 </items>
             </ComboBox>
@@ -74,12 +75,12 @@
       </GridPane>
       <BorderPane prefHeight="385.0" prefWidth="416.0">
          <bottom>
-            <Button fx:id="applyBtn" mnemonicParsing="false" onAction="#readConditions" prefHeight="40.0" prefWidth="168.0" text="Применить условия" BorderPane.alignment="CENTER" />
+            <Button fx:id="applyBtn" mnemonicParsing="false" onAction="#readConditions" prefHeight="40.0" prefWidth="168.0" text="Застосувати" BorderPane.alignment="CENTER" />
          </bottom>
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Целевая функция">
+                  <Label text="Цільова функція">
                      <VBox.margin>
                         <Insets left="15.0" />
                      </VBox.margin>
@@ -97,7 +98,7 @@
                         <Insets bottom="20.0" left="15.0" />
                      </VBox.margin>
                   </TableView>
-                  <Label text="Ограничения">
+                  <Label text="Обмеження">
                      <VBox.margin>
                         <Insets left="15.0" />
                      </VBox.margin>

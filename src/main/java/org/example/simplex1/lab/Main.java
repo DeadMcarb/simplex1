@@ -1,4 +1,4 @@
-package lab;
+package org.example.simplex1.lab;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +18,9 @@ public class Main extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        primaryStage.getIcons().add(
-                new Image(getClass().getResourceAsStream("main-icon.png"))
-        );
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Лабораторная работа по Методам Оптимизации");
         primaryStage.show();
     }
 }
+
+//УБРАТЬ КОММЕНТ КОД!!!!!!!!!!!!!!!!!!!!!!!!!!!

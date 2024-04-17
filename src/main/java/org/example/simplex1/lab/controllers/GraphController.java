@@ -1,4 +1,4 @@
-package org.example.simplex1.lab.controllers.controllers;
+package org.example.simplex1.lab.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,13 +13,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.util.Duration;
 import javafx.util.Pair;
-import org.example.simplex1.lab.controllers.helpers.Fraction;
-import org.example.simplex1.lab.controllers.helpers.Helper;
-import org.example.simplex1.lab.controllers.helpers.LineObject;
-import org.example.simplex1.lab.controllers.helpers.VertexObject;
-import org.example.simplex1.lab.controllers.models.Conditions;
-import org.example.simplex1.lab.controllers.models.Graph;
-import org.example.simplex1.lab.controllers.views.GUIGraph;
+import org.example.simplex1.lab.helpers.Fraction;
+import org.example.simplex1.lab.helpers.Helper;
+import org.example.simplex1.lab.helpers.LineObject;
+import org.example.simplex1.lab.helpers.VertexObject;
+import org.example.simplex1.lab.models.Conditions;
+import org.example.simplex1.lab.models.Graph;
+import org.example.simplex1.lab.views.GUIGraph;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -91,17 +91,6 @@ public class GraphController {
             }
         });
 
-        Tooltip t = new Tooltip("Решить задачу");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(quickAnswerBtn, t);
-
-        t = new Tooltip("Стереть решение задачи");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(resetBtn, t);
-
-        t = new Tooltip("Можно вводить целые числа от 1 до (кол-ва огранчений)");
-        t.setShowDelay(Duration.millis(300));
-        Tooltip.install(basisListView, t);
     }
 
     @FXML
@@ -123,10 +112,7 @@ public class GraphController {
         }
         if (graph.isNoSolution()) {
             if (graph.getFreeList().size() > 2) {
-                Helper.message(Alert.AlertType.INFORMATION,
-                        "Невозможно решить графически",
-                        "", "Данную задачу невозможно решить графически, т.к. " +
-                                "по итогу кол-во переменных получилось больше 2-х");
+
             } else {
                 drawInfLines();
             }
@@ -143,7 +129,7 @@ public class GraphController {
         }
         Pair<Double, Double> scaleValues = getScaleValues(vertexes);
         scaleGraph(scaleValues.getKey(), scaleValues.getValue());
-        drawLines(vertexes, "Границы");
+        drawLines(vertexes, "Границі");
         String answerLegend = "";
         if (answerVertexes.size() > 1) {
             answerLegend = String.format("(%s, %s) - (%s, %s)",
@@ -158,7 +144,7 @@ public class GraphController {
                     answerVertexes.get(0).getValue().toString()
             );
         }
-        drawLines(answerVertexes, "Ответ " + answerLegend);
+        drawLines(answerVertexes, "Відповідь " + answerLegend);
         displayAnswer();
     }
 
@@ -188,7 +174,7 @@ public class GraphController {
         Fraction[][] answer = graph.getAnswer();
         StringBuilder line = new StringBuilder();
         if (answer == null) {
-            line.append("НЕТ РЕШЕНИЯ");
+            line.append("НЕМАЄ РОЗВ'ЯЗКУ");
             line.append("\n");
             Fraction[][] restrict = graph.getRestrict();
             for (Fraction[] fractions : restrict) {
@@ -221,7 +207,7 @@ public class GraphController {
                 line.deleteCharAt(line.length() - 2);
                 line.append(")\n");
             }
-            line.append("F = ");
+            line.append("Z = ");
             if (Conditions.isMin()) {
                 line.append(answer[0][0]);
             } else {

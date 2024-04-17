@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane dividerPositions="0.27" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" stylesheets="@simplex.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controllers.SimplexController">
+<SplitPane dividerPositions="0.27" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" stylesheets="@simplex.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.simplex1.lab.controllers.SimplexController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="571.0">
          <children>
@@ -23,7 +23,7 @@
                <children>
                   <Pane fx:id="basisPane" prefHeight="222.0" prefWidth="588.0">
                      <children>
-                        <Label text="Номера базисных векторов">
+                        <Label text="Номера базисних векторів">
                            <padding>
                               <Insets bottom="15.0" />
                            </padding></Label>
@@ -32,7 +32,7 @@
                   </Pane>
                   <VBox fx:id="answerPane" prefHeight="332.0" prefWidth="524.0" visible="false">
                      <children>
-                        <Label text="ОТВЕТ" />
+                        <Label text="ВІДПОВІДЬ" />
                         <TextArea fx:id="answerTextArea" editable="false" prefHeight="67.0" prefWidth="524.0">
                            <VBox.margin>
                               <Insets />
@@ -59,7 +59,7 @@
                <children>
                   <TableView fx:id="simplexTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowSpan="3">
                       <placeholder>
-                          <Label text="Таблица не заполнена" />
+                          <Label text="" />
                       </placeholder>
                       <columns>
                       <TableColumn prefWidth="75.0" styleClass="first-column" text="X1" />
@@ -68,10 +68,10 @@
                   </TableView>
                   <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="20.0" GridPane.columnIndex="3" GridPane.rowSpan="3">
                      <children>
-                        <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextTable" text="Шаг вперёд" />
-                        <Button fx:id="quickAnswerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#quickAnswer" prefHeight="25.0" prefWidth="121.0" text="Получить ответ" />
-                        <Button fx:id="rollBackBtn" mnemonicParsing="false" onAction="#prevTable" text="Шаг назад" visible="false" />
-                        <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetTable" text="Сбросить" textFill="RED">
+                        <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextTable" text="Вперед" />
+                        <Button fx:id="quickAnswerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#quickAnswer" prefHeight="25.0" prefWidth="121.0" text="РОЗВ'ЯЗАТИ" />
+                        <Button fx:id="rollBackBtn" mnemonicParsing="false" onAction="#prevTable" text="Назад" visible="false" />
+                        <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetTable" text="Перезапустити" textFill="RED">
                            <VBox.margin>
                               <Insets top="60.0" />
                            </VBox.margin></Button>
